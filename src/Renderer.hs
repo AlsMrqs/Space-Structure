@@ -8,12 +8,10 @@ import qualified Data.Set as Set
 
 import qualified Structure.Graph as Graph
 import qualified Structure.BFS as BFS
+import qualified Prototype.Virtual as Virtual
 import qualified Universe
-import qualified Virtual
 import qualified Space
 
--- import qualified Utils.Generator
--- import qualified Utils.Conversor
 import qualified Utils.Builder
 
 -- :: (_ a) => a -> IO ()
@@ -44,14 +42,15 @@ displayEntity k = do
     GLUT.swapBuffers
     GLUT.postRedisplay Nothing
 
--- [#] 
+-- [#] render overlaps in order
 renderEntity :: (Ord a, Space.Coord a) => Universe.Entity a -> IO ()
 renderEntity k = do
     GLUT.color (Universe.color k) 
     OpenGL.renderPrimitive 
         (Universe.model k)
         . mapM_ (flash . map Space.point . Map.keys)
-        $ BFS.connected (Universe.graph k)
+        . BFS.connected 
+        $ (Universe.graph k)
     return ()
 
 -- [!] todo: Render Graph.Graph (Origin Perspective)

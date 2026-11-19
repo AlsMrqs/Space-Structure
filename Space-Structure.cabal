@@ -22,6 +22,7 @@ library
         MyLib,
         Structure.Graph,
         Structure.BFS,
+        Prototype.Virtual,
         Utils.Generator,
         Utils.Conversor,
         Utils.Builder,
@@ -29,7 +30,7 @@ library
         Space,
         Math,
         Universe,
-        Virtual,
+        -- Virtual,
         Launcher
     -- other-modules:
     -- other-extensions:
