@@ -2,20 +2,18 @@ module Prototype.Virtual where
 
 import qualified Space as Space
 
--- [!] Form :: (Space.Coord a) => b -> a
+-- [!] Delta :: (Space.Coord a) => b -> a
 
 data X = X
 data Y = Y
 data Z = Z
 
-newtype Form a = Form { delta :: (Double,Double) } -- [!] Delta {?}
-
--- newtype Delta = Delta { delta :: (Double,Double) }
+type Delta = (Double,Double)
 
 data Command = Copy 
-    { x :: Form X
-    , y :: Form Y
-    , z :: Form Z
+    { x :: Delta
+    , y :: Delta
+    , z :: Delta
     , o :: Space.Point }
 
 -- [!] Memory:

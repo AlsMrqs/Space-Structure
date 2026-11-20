@@ -23,6 +23,8 @@ library
         Structure.Graph,
         Structure.BFS,
         Prototype.Virtual,
+        Prototype.Ambient,
+        Prototype.Game,
         Utils.Generator,
         Utils.Conversor,
         Utils.Builder,
